@@ -5,7 +5,7 @@ import { AuthorsComponent } from './authors.component'
 @Component({
     selector: 'my-app',
     template: `
-        <h2> My first Angualr 2 App </h2>
+        <h1> My first Angualr 2 App </h1>
         <courses></courses>
         <authors></authors>`,
     directives: [CoursesComponent, AuthorsComponent]
