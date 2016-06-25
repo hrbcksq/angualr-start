@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CoursesComponent } from './courses.component'
+import { AuthorsComponent } from './authors.component'
 
 @Component({
     selector: 'my-app',
     template: `
         <h2> My first Angualr 2 App </h2>
-        <courses></courses>`,
-    directives: [CoursesComponent]
+        <courses></courses>
+        <authors></authors>`,
+    directives: [CoursesComponent, AuthorsComponent]
 })
 export class AppComponent { }
