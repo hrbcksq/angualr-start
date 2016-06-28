@@ -38,3 +38,7 @@ jspm_packages
 
 # Typings
 typings
+
+# Temporaty
+*.js
+*.js.map
