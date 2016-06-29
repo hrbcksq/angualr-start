@@ -12,9 +12,10 @@ import { SandComponent } from './sand.component'
     selector: 'my-app',
     template: `
         <h1>{{ title }}</h1>
+        <sand></sand>
         <courses></courses>
         <authors></authors>`,
-    directives: [CoursesComponent, AuthorsComponent]
+    directives: [CoursesComponent, AuthorsComponent, SandComponent]
 })
 export class AppComponent {
     private title: string = "My first Angualr 2 App";

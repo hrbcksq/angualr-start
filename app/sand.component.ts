@@ -3,14 +3,10 @@ import { SandService } from './sand.service'
 
 @Component({
     selector: 'sand',
-    template: `<button class='btn btn-primary' 
-        [class.active]=isActive
-        [style.color]="isActive ? 'green' : 'gray'" >
-            SimpleButton
-        </button>`,
-    host:{
-        '(click)' : 'onClick()'    
-    },
+    template: `
+        <div (click)='onClick($event)'>
+            <button class='btn btn-primary' (click)="onClick($event)">SimpleButton</button>
+        </div>`,
     providers:[SandService]
 })
 export class SandComponent{
@@ -20,8 +16,9 @@ export class SandComponent{
 
     }
 
-    onClick(){
-        this.isActive = !this.isActive;
-        console.log('clicked');
+    onClick($event){
+        $event.stopPropagation();
+        this.isActive = !this.isActive;        
+        console.log('clicked', $event);
     }
 }
