@@ -4,7 +4,9 @@ import { SandService } from './sand.service'
 @Component({
     selector: 'sand',
     template: `
-        <input [value]='title' (input)='onInput($event)'/>
+        <input [(ngModel)]='title'/>
+
+        <input type='button' value='clear' (click)='onClear()'/>
         Value: {{ title }}`,
     providers:[SandService]
 })
@@ -17,6 +19,7 @@ export class SandComponent{
     onInput($event){
         this.title = $event.target.value;
     }
-
-    
+    onClear(){
+        this.title = '';
+    }    
 }
