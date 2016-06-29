@@ -4,21 +4,19 @@ import { SandService } from './sand.service'
 @Component({
     selector: 'sand',
     template: `
-        <div (click)='onClick($event)'>
-            <button class='btn btn-primary' (click)="onClick($event)">SimpleButton</button>
-        </div>`,
+        <input [value]='title' (input)='onInput($event)'/>
+        Value: {{ title }}`,
     providers:[SandService]
 })
 export class SandComponent{
     private isActive: boolean = false;
+    private title: string = 'title'
 
-    constructor(private sandService: SandService){
+    constructor(private sandService: SandService){ }
 
+    onInput($event){
+        this.title = $event.target.value;
     }
 
-    onClick($event){
-        $event.stopPropagation();
-        this.isActive = !this.isActive;        
-        console.log('clicked', $event);
-    }
+    
 }
