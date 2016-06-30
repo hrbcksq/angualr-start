@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CoursesComponent } from './courses.component'
 import { AuthorsComponent } from './authors.component'
-import { SandComponent } from './sand.component'
+import { StarComponent } from './star.component'
 
 // Property binding works only one way
 // Class binding is the way to bind property value to class
@@ -12,10 +12,10 @@ import { SandComponent } from './sand.component'
     selector: 'my-app',
     template: `
         <h1>{{ title }}</h1>
-        <sand></sand>
+        <star></star>
         <courses></courses>
         <authors></authors>`,
-    directives: [CoursesComponent, AuthorsComponent, SandComponent]
+    directives: [CoursesComponent, AuthorsComponent, StarComponent]
 })
 export class AppComponent {
     private title: string = "My first Angualr 2 App";
