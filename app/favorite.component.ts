@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 
 @Component({
     selector: 'favorite',
-    template: `<i class='glyphicon' [style.font-size]='size' [class.glyphicon-star]='isActive' [class.glyphicon-star-empty]='!isActive' (click)='changeState()'></i>`
+    templateUrl: 'app/favorite.template.html'
    
 })
 export class FavoriteComponent{
