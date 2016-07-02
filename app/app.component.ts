@@ -12,10 +12,14 @@ import { FavoriteComponent } from './favorite.component'
     selector: 'my-app',
     template: `
         <h1>{{ title }}</h1>
-        <favorite [is-favorite]='isActive'></favorite>`,
+        <favorite [is-favorite]='isActive' (change)='consoleLog($event)'></favorite>`,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
 })
 export class AppComponent {
     private title: string = "Application";    
-    private isActive: boolean = true;    
+    private isActive: boolean = true; 
+
+    consoleLog($event) {
+        console.log($event);
+    }   
 }
