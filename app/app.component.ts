@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CoursesComponent } from './courses.component'
 import { AuthorsComponent } from './authors.component'
-import { StarComponent } from './star.component'
+import { FavoriteComponent } from './favorite.component'
 
 // Property binding works only one way
 // Class binding is the way to bind property value to class
@@ -12,14 +12,10 @@ import { StarComponent } from './star.component'
     selector: 'my-app',
     template: `
         <h1>{{ title }}</h1>
-        <star></star>
-        <courses></courses>
-        <authors></authors>`,
-    directives: [CoursesComponent, AuthorsComponent, StarComponent]
+        <favorite [is-favorite]='isActive'></favorite>`,
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
 })
 export class AppComponent {
-    private title: string = "My first Angualr 2 App";
-    private image: string = "https://images.unsplash.com/photo-1465205568425-23fdd3805e49";
-    private size: number = 400;
+    private title: string = "Application";    
     private isActive: boolean = true;    
 }
