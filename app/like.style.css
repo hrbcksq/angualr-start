@@ -1,0 +1,9 @@
+div.glyphicon{
+    display: inline-block;
+    cursor: pointer;
+    color: #ccc;
+}
+
+div.glyphicon.selected {
+    color: deeppink;
+}

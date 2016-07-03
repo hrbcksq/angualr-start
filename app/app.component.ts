@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CoursesComponent } from './courses.component'
-import { AuthorsComponent } from './authors.component'
-import { StarComponent } from './star.component'
+import { FavoriteComponent } from './favorite.component'
+import { LikeComponent } from './like.component'
+import { VoterComponent } from './voter.component'
 
 // Property binding works only one way
 // Class binding is the way to bind property value to class
@@ -12,14 +12,42 @@ import { StarComponent } from './star.component'
     selector: 'my-app',
     template: `
         <h1>{{ title }}</h1>
-        <star></star>
-        <courses></courses>
-        <authors></authors>`,
-    directives: [CoursesComponent, AuthorsComponent, StarComponent]
+        <favorite [is-favorite]='user.favorite' (change)='onFavorite($event)'></favorite>
+        <like [count]='post.likes' [liked]='user.liked' (changed)='onLike($event)'></like>
+        <voter [voteCount]='post.votes' [myVote]='user.voted' (vote)='onVote($event)'></voter>`,
+    directives: [FavoriteComponent, LikeComponent, VoterComponent],
+    styleUrls: ['app//app.style.css']
 })
 export class AppComponent {
-    private title: string = "My first Angualr 2 App";
-    private image: string = "https://images.unsplash.com/photo-1465205568425-23fdd3805e49";
-    private size: number = 400;
-    private isActive: boolean = true;    
+    private title: string = "Application";    
+    private isActive: boolean = true;
+
+    private post = {
+        likes: 43,        
+        votes: 13
+    } 
+
+    private user = {
+        liked: true,
+        voted: 1,
+        favorite: true    
+    }    
+
+    Log($event) {
+        console.log($event);
+    }
+
+    onFavorite($event){
+        this.user.favorite = !this.user.favorite;
+        this.Log(this.user.favorite);
+    }
+
+    onLike($event) {        
+        this.post.likes += $event.result ? 1 : -1;
+        this.Log($event);         
+    }   
+
+    onVote($event) {
+        this.post.votes += $event.result;
+    }
 }
