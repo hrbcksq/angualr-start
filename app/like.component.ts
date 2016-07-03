@@ -12,7 +12,7 @@ export class LikeComponent{
     @Output() private changed = new EventEmitter()
 
     onChange(){
-        this.isLiked = this.isLiked;        
+        this.isLiked = !this.isLiked;        
         this.changed.emit({ result: this.isLiked });
     } 
 }

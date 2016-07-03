@@ -12,7 +12,7 @@ import { LikeComponent } from './like.component'
     template: `
         <h1>{{ title }}</h1>
         <favorite [is-favorite]='isActive' (change)='consoleLog($event)'></favorite>
-        <like [count]='likes' (changed)='liked($event)'></like>`,
+        <like [count]='likes' [liked]='liked' (changed)='onLike($event)'></like>`,
     directives: [FavoriteComponent, LikeComponent],
     styleUrls: ['app//app.style.css']
 })
@@ -20,12 +20,13 @@ export class AppComponent {
     private title: string = "Application";    
     private isActive: boolean = true; 
     private likes: number = 42;
+    private liked: boolean = true;
 
     consoleLog($event) {
         console.log($event);
     }
 
-    liked($event) {        
+    onLike($event) {        
         this.likes += $event.result ? 1 : -1;
         this.consoleLog($event);         
     }   
