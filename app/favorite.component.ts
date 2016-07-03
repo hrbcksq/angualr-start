@@ -7,8 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 })
 export class FavoriteComponent{
     @Input('is-favorite') isActive: boolean = false;
-    @Output() change = new EventEmitter();
-    private size: number = 24;
+    @Output() change = new EventEmitter();    
 
     changeState(){
         this.isActive = !this.isActive;
